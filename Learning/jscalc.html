@@ -1,0 +1,132 @@
+<!-- https://www.freecodecamp.org/news/how-to-build-an-html-calculator-app-from-scratch-using-javascript-4454b8714b98/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-size: 18px;
+      }
+
+      header {
+        font-size: 1.5rem;
+        margin-top: 5rem;
+        text-align: center;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+      }
+
+      .main-case {
+        border: 1px solid red;
+      }
+
+      /* generic elements */
+      .calc-row {
+        margin: 0;
+        display: flex;
+      }
+      .button {
+        font-size: 5rem;
+        margin: 2rem 1.5rem;
+        padding: 2rem 1.5rem;
+        border-radius: 5px;
+        border: 1px solid rgba(44, 62, 80, 1);
+
+        background-color: rgba(52, 152, 219, 1);
+        color: white;
+      }
+
+      .screen {
+        font-size: 6rem;
+        display: flex;
+        justify-content: flex-end;
+        margin: 3rem;
+        border: 2px solid rgba(44, 62, 80, 1);
+        border-radius: 5px;
+        padding: 0.5rem;
+      }
+
+      .button:hover {
+        background-color: rgba(41, 128, 185, 1);
+        cursor: pointer;
+      }
+
+      .zero {
+        flex-grow: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Simple JS Calculator</h1>
+    </header>
+    <div class="container">
+      <div class="main-case">
+        <div class="calc-row screen">
+          <span class="">0</span>
+        </div>
+        <div class="calc-row top-row">
+          <span class="button">7</span>
+          <span class="button">8</span>
+          <span class="button">9</span>
+          <span class="button" data-action="multiply">&times;</span>
+        </div>
+        <div class="calc-row middle-row">
+          <span class="button">4</span>
+          <span class="button">5</span>
+          <span class="button">6</span>
+          <span class="button" data-action="divide">÷</span>
+        </div>
+        <div class="calc-row bottom-row">
+          <span class="button">1</span>
+          <span class="button">2</span>
+          <span class="button">3</span>
+          <span class="button" data-action="subtract">-</span>
+        </div>
+        <div class="calc-row zero-row">
+          <span class="button" data-action="clear">AC</span>
+          <span class="button zero">0</span>
+          <span class="button" data-action="calculate">=</span>
+          <span class="button" data-action="add">+</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      //   const numbers = [...document.querySelectorAll('.button')];
+      //   const screen = document.querySelector('.screen');
+      //   let holdingArea = [];
+      //   let holdingString = '';
+
+      //   function handleAll() {
+      //     // holdingArea.push(this.innerHTML);
+      //     // console.log(holdingArea);
+      //     let input = this.innerHTML;
+      //     holdingString + input;
+      //   }
+
+      // get the pressed number using innerHTML
+      // for now create a function that will iterate over the numbers
+      // and console.log the number of innerHTML
+      //   numbers.map((num) => num.addEventListener('click', handleAll));
+
+      // const seconds = timeNodes
+      // .map((node) => node.dataset.time)
+      // .map((timeCode) => {
+      //   const [mins, secs] = timeCode.split(':').map(parseFloat);
+      //   return mins * 60 + secs;
+      // })
+      // .reduce((total, vidSeconds) => total + vidSeconds);
+    </script>
+  </body>
+</html>
