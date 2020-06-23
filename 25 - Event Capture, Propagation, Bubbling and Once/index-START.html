@@ -1,48 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Understanding JavaScript's Capture</title>
-</head>
-<body class="bod">
-
-  <div class="one">
-    <div class="two">
-      <div class="three">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Understanding JavaScript's Capture</title>
+  </head>
+  <body class="bod">
+    <div class="one">
+      <div class="two">
+        <div class="three"></div>
       </div>
     </div>
-  </div>
 
-<style>
-  html {
-    box-sizing: border-box;
-  }
-  
-  *, *:before, *:after { 
-    box-sizing: inherit; 
-  }
+    <style>
+      html {
+        box-sizing: border-box;
+      }
 
-  div {
-    width: 100%;
-    padding: 100px;
-  }
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
 
-  .one {
-    background: thistle;
-  }
+      div {
+        width: 100%;
+        padding: 100px;
+      }
 
-  .two {
-    background: mistyrose;
-  }
+      .one {
+        background: thistle;
+      }
 
-  .three {
-    background: coral;
-  }
-</style>
+      .two {
+        background: mistyrose;
+      }
 
-<button></button>
-<script>
+      .three {
+        background: coral;
+      }
+    </style>
 
-</script>
-</body>
+    <button></button>
+    <script>
+      const divs = document.querySelectorAll('div');
+      const button = document.querySelector('button');
+
+      function logText(e) {
+        console.log(this.classList.value);
+        // e.stopPropagation(); // stop bubbling
+      }
+
+      divs.forEach((div) =>
+        div.addEventListener('click', logText, {
+          capture: false,
+          once: true,
+        }),
+      );
+
+      button.addEventListener(
+        'click',
+        () => {
+          console.log('Click!!!');
+        },
+        {
+          once: true,
+        },
+      );
+
+      // ############################################
+      // quick summery in my own words
+      // ############################################
+      // Once:
+      //  will only run that event listener once, it comes in handy for store
+      //  checkouts. Preventing the button being clicked more than once.
+      // Bubbling:
+      //  not sure if i will use this, but if you have nested elements and you
+      //  add an event listener on the lowest or the outer most, you will be
+      //  returned all of the elements going down to the depths of the earth.
+    </script>
+  </body>
 </html>
